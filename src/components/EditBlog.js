@@ -1,7 +1,5 @@
 import { Button } from "react-bootstrap";
-import { useDispatch } from "react-redux";
 //import { bindActionCreators } from "redux";
-import { actionCreators } from '../State/'
 import { Link } from "react-router-dom";
 import { useSelector} from "react-redux";
 import { useState } from "react";
@@ -10,7 +8,6 @@ import { useEffect } from "react";
 import Navbar from "./Navbar";
 function EditBlog() {
 
-    const dispatch = useDispatch();
     const data = useSelector(state => state.blogReducer);
     console.log("from view to edit", data);
 
@@ -25,18 +22,20 @@ function EditBlog() {
     const id=useParams();
 
     useEffect(()=>{
-        data.blogData.map((item,i)=>{       
-            if(id.id==i){
+        const tempBlogData=data.blogData.map((item,i)=>{       
+            if(id.id===i){
                 setTitle(item.Title);
                 setCategories(item.Categories);
                 setBlog(item.blog);
                 setlikes(item.Likes);
             }
+            return item
         })
-    },[])
+        data.blogData=tempBlogData
+    },[data,id])
 
     function formSubmit(){
-        if(title=="" || categories=="" || blog=="")
+        if(title==="" || categories==="" || blog==="")
            alert("No fields can be empty");
         else{
             edit({Title:title,Categories:categories,blog:blog,Likes:likes});
@@ -47,13 +46,15 @@ function EditBlog() {
 
 
     function edit(newData){
-        const temp=info;
-        info.map((item,i)=>{
-            if(id.id==i){
+
+        const temp=info.map((item,i)=>{
+            if(id.id===i){
                temp[i]=newData;
                setInfo(temp);
             }
+            return item
         })
+        setInfo(temp)
     }
 
     return (
@@ -68,7 +69,7 @@ function EditBlog() {
 
             {
                 <div className="container">
-                    <div className=" text-center mt-3 ">
+                    <div className=" text-center mt-3 "style={{ color: "white" }}>
 
                         <h1 >Edit Blog</h1>
 

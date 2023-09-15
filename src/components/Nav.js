@@ -22,7 +22,7 @@ function Nav() {
                 
                 <div className="container-fluid d-flex justify-content-between">
                    
-                    <div className="navbar-brand">Blogging</div>
+                    <div className="navbar-brand">Blog Post</div>
                     <div></div>
                     <div className="d-flex">
                         <div className="mt-1 mx-3" style={{height:"30px",width:"90px",border:"1px solid white",color:"white",borderRadius:"10px"}}><FontAwesomeIcon className="mx-3" icon="fa-solid fa-thumbs-up" />{data.blogData[id].Likes}</div>
