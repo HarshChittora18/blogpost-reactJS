@@ -69,7 +69,7 @@ function EditBlog() {
 
             {
                 <div className="container">
-                    <div className=" text-center mt-3 "style={{ color: "white" }}>
+                    <div className=" text-center mt-3 ">
 
                         <h1 >Edit Blog</h1>
 

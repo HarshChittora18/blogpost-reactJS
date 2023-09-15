@@ -20,7 +20,7 @@ function ViewBlog() {
 
     useEffect(()=>{
         data.blogData.map((item,i)=>{       
-            if(id.id==i){
+            if(id.id===i){
                 console.log(item);
                 setBlog(item);
             }
