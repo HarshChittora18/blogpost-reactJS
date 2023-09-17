@@ -63,7 +63,51 @@
 
 
 
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState, useCallback} from "react";
+// import { Button } from "react-bootstrap";
+// import { Link } from "react-router-dom";
+// import { useDispatch } from "react-redux";
+// import { actionCreators } from "../State/";
+// import Navbar from "./Navbar";
+// import { useSelector } from "react-redux";
+
+
+// function Home() {
+//   const data = JSON.parse(localStorage.getItem("blog"));
+//   const [blogs, setBlogs] = useState(data);
+//   const dispatch = useDispatch();
+//   const newData = useSelector((state) => state.blogReducer);
+
+//   useEffect(() => {
+//     if (newData.blogData[0] !== undefined) {
+//       changeData();
+//     }
+//   }, [newData, changeData]);
+
+//   // function changeData() {
+//   //   setBlogs(newData.blogData);
+//   //   localStorage.setItem("blog", JSON.stringify(newData.blogData));
+//   //   const temp = localStorage.getItem("blog");
+//   //   console.log("from local", temp);
+//   // }
+
+
+// const changeData = useCallback(() => {
+//     setBlogs(newData.blogData);
+//     localStorage.setItem("blog", JSON.stringify(newData.blogData));
+//     const temp = localStorage.getItem("blog");
+//     console.log("from local", temp);
+// }, [newData.blogData]);
+
+// useEffect(() => {
+//     changeData();
+
+
+// }, [changeData, newData.blogData]); 
+
+
+
+import React, { useEffect, useState, useCallback } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -77,18 +121,24 @@ function Home() {
   const dispatch = useDispatch();
   const newData = useSelector((state) => state.blogReducer);
 
+  const changeData = useCallback(() => {
+    setBlogs(newData.blogData);
+    localStorage.setItem("blog", JSON.stringify(newData.blogData));
+    const temp = localStorage.getItem("blog");
+    console.log("from local", temp);
+  }, [newData.blogData]);
+
   useEffect(() => {
     if (newData.blogData[0] !== undefined) {
       changeData();
     }
   }, [newData, changeData]);
 
-  function changeData() {
-    setBlogs(newData.blogData);
-    localStorage.setItem("blog", JSON.stringify(newData.blogData));
-    const temp = localStorage.getItem("blog");
-    console.log("from local", temp);
-  }
+  useEffect(() => {
+    changeData();
+  }, [changeData, newData.blogData]);
+
+  // Rest of your component code...
 
   return (
     <>
