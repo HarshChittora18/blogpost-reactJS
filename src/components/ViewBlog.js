@@ -18,15 +18,25 @@ function ViewBlog() {
     console.log("id in view",id);
     const [Blog,setBlog]=useState({});
 
-    useEffect(()=>{
-        data.blogData.map((item,i)=>{       
-            if(id.id===i){
-                console.log(item);
-                setBlog(item);
-            }
-        })
-    },[])
+    // useEffect(()=>{
+    //     data.blogData.map((item,i)=>{       
+    //         if(id.id===i){
+    //             console.log(item);
+    //             setBlog(item);
+    //         }
+    //     })
+    // },[]) 
 
+
+    useEffect(() => {
+        const selectedBlog = data.blogData.find((item, i) => id.id === i);
+        if (selectedBlog) {
+            console.log(selectedBlog);
+            setBlog(selectedBlog);
+        }
+    }, [data.blogData, id.id]);
+    
+      
     console.log("blog data is",Blog);
     console.log("Whole data is",data.blogData);
 

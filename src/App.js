@@ -4,7 +4,7 @@ import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
 import './App.css';
 import Home from './components/Home';
 import AddBlog from './components/AddBlog';
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import ViewBlog from './components/ViewBlog';
 import EditBlog from './components/EditBlog';
 

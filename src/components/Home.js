@@ -81,7 +81,7 @@ function Home() {
     if (newData.blogData[0] !== undefined) {
       changeData();
     }
-  }, [newData]);
+  }, [newData, changeData]);
 
   function changeData() {
     setBlogs(newData.blogData);
