@@ -15,7 +15,7 @@ body {
   background: #080819;
   /* background: linear-gradient(to right, #313840, #1f2934);
    */
-  background-image: url('/Users/harshchittora/Downloads/Blog-Post-master/blogpost/Blog post application/src/bg2.jpg');
+  background-image: url('../css/bg2.jpg');
   }
 
 
