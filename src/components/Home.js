@@ -138,7 +138,6 @@ function Home() {
     changeData();
   }, [changeData, newData.blogData]);
 
-  // Rest of your component code...
 
   return (
     <>
